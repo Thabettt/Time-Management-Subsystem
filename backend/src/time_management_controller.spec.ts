@@ -1,22 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './time_management_controller';
-import { AppService } from './time_management_service';
+import { TimeManagementController } from './time_management_controller';
 
-describe('AppController', () => {
-  let appController: AppController;
+describe('TimeManagementController', () => {
+  let controller: TimeManagementController;
 
   beforeEach(async () => {
-    const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [TimeManagementController],
     }).compile();
 
-    appController = app.get<AppController>(AppController);
+    controller = module.get<TimeManagementController>(TimeManagementController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
-    });
+  it('should be defined', () => {
+    expect(controller).toBeDefined();
   });
 });
